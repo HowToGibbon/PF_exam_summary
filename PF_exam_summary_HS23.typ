@@ -70,10 +70,19 @@
     [*Intent:* #intent]
   }
   #if problem != [] {
-    [\ *Problem:* #problem ]
+    if intent != [] {
+      [\ *Problem:* #problem ]
+    } else {
+      [*Problem:* #problem ]
+    }
   }
   #if solution != []{
-    [\ *Solution:* #solution]
+    if intent != [] or problem != [] {
+      [\ *Solution:* #solution]
+    } else {
+      [*Solution:* #solution]
+      
+    }
   }
   #if implementation != [] {
     [\ *Implementation:* #implementation]
@@ -204,7 +213,7 @@
 #image("images/solution_abstract_factory.jpg")
 Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
 
-== Prototype
+== Prototype (Clone)
 #image("images/solution_prototype.png")
 Specify the kinds of objects to create using a prototypical instance, and reate new objects by copying this prototype.
 
@@ -291,24 +300,24 @@ Specify the kinds of objects to create using a prototypical instance, and reate 
 #liability[ServiceLocator still Singleton, cant replace ServiceLocator]
 
 = Structural
-== Adapter
+== Adapter (Wrapper)
 #image("images/solution_adapter.png", width: 90%)
 Convert the interface of a class into another interface expect.
 Adapter lets classes work together that couldn't otherwise because of incompatible interfaces.
 
-== Composite
+== Composite (Object Tree)
 #image("images/solution_composite.png")
 Composes objects into tree structures and let you work with these structures as if they were individual objects.
 #combine_with[Visitor]
 
 #colbreak()
-== Decorator
+== Decorator (Wrapper)
 #image("images/solution_decorator.png", width: 70%)
 
 Attach additional responsibilities to an object dynamically.
 Decorators provide a flexible alternative subclassing for extending functionality.
 
-== Flyweight
+== Flyweight (Cache)
 #image("images/solution_flyweight.png", width: 80%)
 
 #pattern(
@@ -347,7 +356,7 @@ Provide a surrogate/placeholder for another object to control access to it.
 #colbreak()
 
 = Behavioral
-== Mediator
+== Mediator (Vermittler)
 #image("images/solution_mediator_static_structure2.png", width: 80%)
 
 #pattern(
@@ -391,7 +400,7 @@ Static Structure
 #liability[Adds complexity]
 #liability[Single point of failure]
 
-== Memento (Vermittler)
+== Memento (Snapshot)
 #image("images/solution_memento_static_structure.png", width: 90%)
 
 #togglebox[
@@ -479,7 +488,7 @@ Static Structure
 ]
 
 #pattern(
-  [Encapsulation of commands so they can be scheduled/logged],
+  [],
   [Executed Methods not identifiable in most languages],
   [Encapsulate request as object, used for parameterization],
   relations: [Setting Context for (Command Processor, Internal Iterator), Setting Context by (Strategy)]
@@ -1248,7 +1257,7 @@ Separate good input from bad, (validation)
 
 #benefit[Adapting software system is easy, Support many changes]
 #liability[Non-transparent "black magic" APIs, typesafety, Efficiency]
-*Dangers:* Overengineering, "Security" undermined, obscure API, config
+\ *Dangers:* Overengineering, "Security" undermined, obscure API, config
 
 == Type Object
 #pattern(
@@ -1350,7 +1359,7 @@ Separate good input from bad, (validation)
 ]
 
 == Bridge Method
-=> Mitigates liabilities of Property List
+=> Mitigates liabilities of Property List\
 #pattern(
   [Provide consistent naming and type safety to property list],
   [Inconsistent naming and no type safety on property list],
@@ -1413,7 +1422,7 @@ Separate good input from bad, (validation)
 #benefit[Streamable format,flexible interchange across boundaries]
 #liability[Typesafety, unapparent intent, lookup overhead]
 
-=== When to usee what?
+=== When to use what?
 Reflection
 - Deep introspection and modification capabilities are needed
 - Building frameworks or libraries that require dynamic behavior based on user-defined classes.
@@ -1425,6 +1434,8 @@ Property List
 - Flexibility in object's attributes needed, with ability CRUD properties at runtime.
 - Type safety is not a primary concern or mechanisms to handle it effectively exists.
 - Dealing with scenarios where objects can be very diverse and unpredictable, and you want to avoid rigid class structures.
+
+#colbreak()
 
 = Frameworks
 #image("images/app_framework.png", width: 100%)
@@ -1453,7 +1464,13 @@ Represented by many Design Patterns *e.g.* Template Method, Strategy, Command Pr
 
 = POSA 1 & 3
 
+#image("images\forwarderReceiver.png")
 #image("images\ResourceManager.png")
 
-
+== Coordinator Pattern (two-phase prepare & commit)
+#pattern(
+  [],
+  [Partial failure in systems involving multiple participants],
+  [Either all are successfull, or none are in case of any failure],
+)
 #image("images\Coordinator.png")
