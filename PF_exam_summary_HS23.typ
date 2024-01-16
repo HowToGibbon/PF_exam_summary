@@ -875,8 +875,6 @@ Dynamics
 
 #liability[Can lead to a more complex state manager]
 
-#colbreak()
-
 = Value Patterns
 == System Analysis (OOA = Object Oriented Analysis)
 An individual is something that can be named and reliably distinguished from other individuals.
@@ -900,6 +898,10 @@ Kind of individuals:
   ]
 ]
 
+#colbreak()
+
+== Domain Driven Design
+#image("images/ddd.png")
 == Software Design (OOD)
 - *Identity:* significant, or transparent (=transient identity)
 - *State:* object stateful or stateless
@@ -923,9 +925,6 @@ Categories of objects:
     - *Value:* Fields e.g. `int age;` 
   ]
 ]
-
-== Domain Driven Design
-#image("images/ddd.png")
 
 == Patterns of Value
 Patterns of Value addressing value objects in “pure” OO languages.
@@ -1450,3 +1449,10 @@ Represented by many Design Patterns *e.g.* Template Method, Strategy, Command Pr
 => Check out *functional* and *non-functional* requirements and *evaluate* Framework with care, *before* get locked-in.
 
 *Ways out of dilemma:* 1. Think very hard up-front, 2. Don't care too much bout framework users, 3. Let framework users participate, 4. Use helping technology
+
+= POSA 1 & 3
+
+#image("images\ResourceManager.png")
+
+
+#image("images\Coordinator.png")
