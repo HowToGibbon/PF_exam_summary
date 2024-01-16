@@ -1171,7 +1171,7 @@ public final class Date {
   [Construction of Value object sometimes expensive],
   [Use static methods instead of ordinary constructor],
   example: [`public final class Value {public static Value of (int v)}`],
-  relations: [ariation for (Flyweight)],
+  relations: [Variation for (Flyweight)],
 )
 
 #togglebox[
