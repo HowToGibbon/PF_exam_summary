@@ -898,10 +898,11 @@ Kind of individuals:
   ]
 ]
 
-#colbreak()
-
 == Domain Driven Design
 #image("images/ddd.png")
+
+#colbreak()
+
 == Software Design (OOD)
 - *Identity:* significant, or transparent (=transient identity)
 - *State:* object stateful or stateless
