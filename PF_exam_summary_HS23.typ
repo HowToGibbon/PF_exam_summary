@@ -332,7 +332,7 @@ Decorators provide a flexible alternative subclassing for extending functionalit
 #liability[Can’t rely on object identity,Finding Flyweight maybe costly]
 
 == Facade
-#image("images/solution_facade.jpg", width: 100%)
+#image("images/solution_facade.jpg", width: 80%)
 Provides a simplified interface to a library, a framework, or any other complex set of classes. Doesn't Include much logic.
 
 == Pooling (Boxing)
@@ -348,7 +348,7 @@ Provides a simplified interface to a library, a framework, or any other complex 
 #liability[Management overhead, Synchronization to avoid races]
 
 == Proxy
-#image("images/solution_proxy.png", width: 95%)
+#image("images/solution_proxy.png", width: 100%)
 
 Provide a surrogate/placeholder for another object to control access to it.
 
