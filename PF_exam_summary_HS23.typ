@@ -401,7 +401,7 @@ Static Structure
 #liability[Single point of failure]
 
 == Memento (Snapshot)
-#image("images/solution_memento_static_structure.png", width: 90%)
+#image("images/solution_memento_static_structure.png", width: 100%)
 
 #togglebox[
   #quote(attribution: [GoF])[Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored to this state later.]
@@ -415,11 +415,10 @@ Static Structure
 )
 
 === Participants
-*Memento* 
-- Stores some or all internal state of the Originator
+*Memento*:  Stores some or all internal state of the Originator
 - Allows only the Originator to access its internal information
-*Originator*
-- Creates Memento objects to store its internal state at strategic points.
+*Originator*:
+-  Creates Memento objects to store its internal state at strategic points.
 - Restores its own state to what the Memento object dictates
 *Caretaker* (Filesystem, Database)
 - Stores the Memento object of the Originator.
@@ -477,10 +476,7 @@ Static Structure
 ]
 
 == Command
-#image("images/solution_command_static_structure.png", width: 80%)
-
-*Encapsulates commands*, so that they can be parameterized *scheduled*, *logged* and/or *undone*.
-=> pattern does not describe history/undo management
+#image("images/solution_command_static_structure.png", width: 95%)
 
 #togglebox[
   #quote(attribution: [GoF])[
@@ -488,7 +484,8 @@ Static Structure
 ]
 
 #pattern(
-  [],
+  [*Encapsulates commands*, so that they can be parameterized *scheduled*, *logged* and/or *undone*.
+=> pattern does not describe history/undo management #combine_with[Command Processor]],
   [Executed Methods not identifiable in most languages],
   [Encapsulate request as object, used for parameterization],
   relations: [Setting Context for (Command Processor, Internal Iterator), Setting Context by (Strategy)]
@@ -511,9 +508,11 @@ Dynamics
 #benefit[The same command can be activated from different objects]
 #benefit[New commands can be introduced quickly and easily]
 #benefit[Command objects can be saved in a command history]
-#benefit[Provides inversion of control, encourages decoupling in both time and space]
+#benefit[Gives inversion of control, encourages decoupling in time and space]
 
 #liability[Large designs with many commands can introduce many small command classes mauling the design]
+
+#colbreak()
 
 == Command Processor
 #pattern(
@@ -577,7 +576,7 @@ Dynamics
 Lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they're observing. 
 
 == Visitor
-#image("images/solution_visitor_static_structure.jpg", width: 80%)
+#image("images/solution_visitor_static_structure.jpg", width: 100%)
 
 #pattern(
   [Separate algorithms from the objects on which they operate],
