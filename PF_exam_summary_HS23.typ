@@ -333,7 +333,7 @@ Decorators provide a flexible alternative subclassing for extending functionalit
 
 == Facade
 #image("images/solution_facade.jpg", width: 100%)
-Provides a simplified interface to a library, a framework, or any other complex set of classes.
+Provides a simplified interface to a library, a framework, or any other complex set of classes. Doesn't Include much logic.
 
 == Pooling (Boxing)
 #pattern(
@@ -414,14 +414,14 @@ Static Structure
 )
 
 === Participants
-*Memento*:  Stores some or all internal state of the Originator
-- Allows only the Originator to access its internal information
-*Originator*:
--  Creates Memento objects to store its internal state at strategic points.
-- Restores its own state to what the Memento object dictates
-*Caretaker* (Filesystem, Database)
-- Stores the Memento object of the Originator.
-- Cannot explore the contents of or operate on the Memento object.
+*Memento*:  Stores some or all internal state of the Originator.
+\ Allows only the Originator to access its internal information
+\ *Originator*:
+\ Creates Memento objects to store its internal state at strategic points.
+\ Restores its own state to what the Memento object dictates
+\ *Caretaker* (Filesystem, Database)
+\ Stores the Memento object of the Originator.
+\ Cannot explore the contents of or operate on the Memento object.
 
 #togglebox[
   #image("images/solution_memento_static_structure.png", width: 90%)
@@ -890,7 +890,7 @@ An individual is something that can be named and reliably distinguished from oth
 #image("images/individuals.png")
 
 Kind of individuals:
-- *Event* an individual happening, taking place at some particular point in time.
+- *Event* an individual happening, taking place at a particular point in time.
 - *Entity* an individual that persists over time and can change its properties and states from one point in time to another. Some entities may initiate events; some may cause spontaneous changes to their own states; some may be passive
 - *Value* an intangible individual that exists outside time and space, and is not subject to change.
 
@@ -1426,7 +1426,8 @@ Separate good input from bad, (validation)
 Reflection
 - Deep introspection and modification capabilities are needed
 - Building frameworks or libraries that require dynamic behavior based on user-defined classes.
-- The drawbacks are acceptable.	•	Large number of similar obj. that differ in characteristics, not their behaviors.
+- The drawbacks are acceptable.
+- Large number of similar obj. that differ in characteristics, not their behaviors.
 Type Object	
 - When avoid extensive inheritance hierarchy for different types.
 - Types are known at compile time, and properties don't change dynamically so new class is required.
@@ -1465,7 +1466,7 @@ Represented by many Design Patterns *e.g.* Template Method, Strategy, Command Pr
 = POSA 1 & 3
 
 #image("images\forwarderReceiver.png")
-#image("images\ResourceManager.png")
+#image("images\ResourceManager.png", width: 85%)
 
 == Coordinator Pattern (two-phase prepare & commit)
 #pattern(
