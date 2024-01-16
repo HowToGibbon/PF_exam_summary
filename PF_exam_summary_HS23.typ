@@ -226,7 +226,7 @@ Specify the kinds of objects to create using a prototypical instance, and reate 
   [Creation interface on super, implementation in child],
   [Factory method to defer insanitation to subclass (allows superclass to alter type of objects that will be created)],
   implementation: [Testing: override with Mock creation],
-  relations: [Setting Context by (Template Method), #combine_with[Abstract Factory ]]
+  relations: [Setting Context by #combine_with[Template Method], #combine_with[Abstract Factory ]]
 )
 
 #colbreak()
@@ -318,7 +318,7 @@ Attach additional responsibilities to an object dynamically.
 Decorators provide a flexible alternative subclassing for extending functionality.
 
 == Flyweight (Cache)
-#image("images/solution_flyweight.png", width: 80%)
+#image("images/solution_flyweight.png", width: 100%)
 
 #pattern(
   [Avoid multiple copies of identical (constant/referenced) objects],
@@ -332,8 +332,7 @@ Decorators provide a flexible alternative subclassing for extending functionalit
 #liability[Can’t rely on object identity,Finding Flyweight maybe costly]
 
 == Facade
-#image("images/solution_facade.jpg", width: 80%)
-
+#image("images/solution_facade.jpg", width: 100%)
 Provides a simplified interface to a library, a framework, or any other complex set of classes.
 
 == Pooling (Boxing)
@@ -349,7 +348,7 @@ Provides a simplified interface to a library, a framework, or any other complex 
 #liability[Management overhead, Synchronization to avoid races]
 
 == Proxy
-#image("images/solution_proxy.png", width: 80%)
+#image("images/solution_proxy.png", width: 95%)
 
 Provide a surrogate/placeholder for another object to control access to it.
 
@@ -514,7 +513,7 @@ Dynamics
 
 #colbreak()
 
-== Command Processor
+== Command Processor (CP)
 #pattern(
   [Manage command objects so execution can be undone],
   [History and undoing of method execution impossible],
@@ -523,8 +522,8 @@ Dynamics
   relations: [Setting Context by (Command, Memento)]
 )
 
-#image("images/solution_command_processor_static_structure.png", width: 90%)
-#image("images/solution_command_processor_dynamics.png", width: 70%)
+#image("images/solution_command_processor_static_structure.png")
+#image("images/solution_command_processor_dynamics.png", width: 80%)
 
 #togglebox[
 *Manage command objects*, so the execution is separated from the request and the execution can be undone later.
@@ -556,9 +555,9 @@ Dynamics
 === Summary
 ]
 
-#benefit[Flexibility, Command Processor and Controller are implemented independently of Commands]
-#benefit[Central Command Processor allows addition of services related to Command execution]
-#benefit[Enhances testability, Command Processor can be used to execute regression tests]
+#benefit[Flexibility, CP and Controller are implemented independently of Cmds]
+#benefit[Central CP allows addition of services related to Command execution]
+#benefit[Enhances testability, CP can be used to execute regression tests]
 
 #liability[Efficiency loss due additional indirection]
 
@@ -860,7 +859,7 @@ Static Structure
 #benefit[Each distinct behavior is assigned its own method]
 #benefit[No object context needs to be passed around, methods can already access the internal state of the state machine]
 
-#liability[Requires an additional two levels of indirection to resolve a method call]
+#liability[Requires an additional two levels of indirection to resolve method call]
 #liability[The state machine may end up far longer than was intended or is manageable]
 
 === Collections for State
@@ -919,10 +918,10 @@ Kind of individuals:
 #image("images/object_aspects.png")
 
 Categories of objects:
-- *Entity:* Express system information (persistent). Distinguished by identity. 
-- *Service:* Represents system activities. Distinguished by behavior.
-- *Value:* Content dominant characteristic. No significant enduring identity (transparent).
-- *Task:* Represent system activities. Distinguished by identity and state (e.g. command objects, threads)
+\ *Entity:* Express system information (persistent). Distinguished by identity. 
+\ *Service:* Represents system activities. Distinguished by behavior.
+\ *Value:* Content dominant characteristic. No significant enduring identity (transparent).
+\ *Task:* Represent system activities. Distinguished by identity and state (e.g. command objects, threads)
 
 #togglebox[
   #colorbox(title: [Discussion])[
@@ -1216,6 +1215,8 @@ public final class Year {
 }
 ```
 ]
+
+#colbreak()
 
 == Mutable Companion
 #pattern(
